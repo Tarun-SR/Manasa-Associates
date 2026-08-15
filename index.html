@@ -475,6 +475,10 @@ section{ padding:120px 8%; position:relative; }
 }
 .service-card h3{ font-size:19px; font-weight:700; margin-bottom:10px; transform:translateZ(20px); }
 .service-card p{ font-size:14.5px; line-height:1.7; color:rgba(255,255,255,0.6); transform:translateZ(10px); }
+.catalog-specs{ list-style:none; margin:0 0 22px; padding:0; transform:translateZ(10px); }
+.catalog-specs li{ font-size:14px; line-height:1.6; color:rgba(255,255,255,0.65); padding-left:16px; position:relative; margin-bottom:6px; }
+.catalog-specs li::before{ content:'—'; position:absolute; left:0; color:var(--rust); }
+.btn-enquire{ width:100%; padding:12px 20px; font-size:14px; transform:translateZ(20px); }
 
 /* =====================
    STATS
@@ -528,6 +532,20 @@ section{ padding:120px 8%; position:relative; }
 .why-card i{ font-size:22px; color:var(--rust); margin-bottom:16px; display:block; }
 .why-card h3{ font-size:16.5px; font-weight:700; margin-bottom:10px; }
 .why-card p{ font-size:14px; color:var(--ink-soft); line-height:1.7; }
+
+/* =====================
+   OUR WORK / GALLERY
+   ===================== */
+.gallery-card{
+  max-width:520px; margin:0 auto;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  gap:16px; padding:60px 40px;
+  border:1px solid var(--line); border-radius:10px;
+  background:white; box-shadow:var(--shadow);
+}
+.gallery-card i{ font-size:34px; color:var(--rust); }
+.gallery-card h3{ font-size:20px; font-weight:700; }
+.gallery-card p{ font-size:14.5px; color:var(--ink-soft); line-height:1.7; }
 
 /* =====================
    TESTIMONIALS
@@ -897,6 +915,85 @@ footer{ background:var(--ink); color:white; padding:70px 8% 30px; }
   </div>
 </section>
 
+<!-- PRODUCT CATALOG -->
+<section id="catalog" aria-labelledby="catalog-heading">
+  <div class="section-title reveal">
+    <span class="eyebrow">Browse the range</span>
+    <h2 id="catalog-heading">Product Catalog</h2>
+    <p>Specs and variants across our six product lines — enquire for current pricing.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card reveal" data-tilt>
+      <div class="service-icon"><i class="fa-solid fa-door-open"></i></div>
+      <h3>uPVC Doors &amp; Windows</h3>
+      <ul class="catalog-specs">
+        <li>60mm and 70mm profile series</li>
+        <li>Single and double sash configurations</li>
+        <li>White, wood-finish, and grey shades</li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-enquire" data-service="upvc">Enquire for pricing</button>
+    </div>
+
+    <div class="service-card reveal" data-tilt>
+      <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+      <h3>Aluminum Systems</h3>
+      <ul class="catalog-specs">
+        <li>Sliding, casement, and fixed sections</li>
+        <li>Anodized and powder-coated finishes</li>
+        <li>Slim and heavy-duty profile options</li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-enquire" data-service="aluminum">Enquire for pricing</button>
+    </div>
+
+    <div class="service-card reveal" data-tilt>
+      <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+      <h3>Waterproofing Works</h3>
+      <ul class="catalog-specs">
+        <li>PU coating, APP membrane &amp; injection grouting</li>
+        <li>For roofs, terraces, basements &amp; wet areas</li>
+        <li>Elastomeric and cementitious systems</li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-enquire" data-service="waterproofing">Enquire for pricing</button>
+    </div>
+
+    <div class="service-card reveal" data-tilt>
+      <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+      <h3>Construction Materials</h3>
+      <ul class="catalog-specs">
+        <li>Cement, sand, aggregates &amp; steel</li>
+        <li>Bulk and site-direct supply</li>
+        <li>For residential, commercial &amp; industrial sites</li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-enquire" data-service="construction">Enquire for pricing</button>
+    </div>
+
+    <div class="service-card reveal" data-tilt>
+      <div class="service-icon"><i class="fa-solid fa-flask"></i></div>
+      <h3>Building Chemicals</h3>
+      <ul class="catalog-specs">
+        <li>Adhesives, grouts, sealants &amp; admixtures</li>
+        <li>Tile- and stone-grade formulations</li>
+        <li>Interior and exterior application</li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-enquire" data-service="chemicals">Enquire for pricing</button>
+    </div>
+
+    <div class="service-card reveal" data-tilt>
+      <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+      <h3>Industrial Goods</h3>
+      <ul class="catalog-specs">
+        <li>Hardware, fasteners &amp; tools</li>
+        <li>Safety equipment &amp; PPE</li>
+        <li>Commercial and industrial-grade stock</li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-enquire" data-service="industrial">Enquire for pricing</button>
+    </div>
+
+  </div>
+</section>
+
 <!-- CAPABILITIES (replaces the old photo-based "Projects" section) -->
 <section id="capabilities" aria-labelledby="capabilities-heading">
   <div class="section-title reveal">
@@ -924,6 +1021,22 @@ footer{ background:var(--ink); color:white; padding:70px 8% 30px; }
       <h3>Industrial Supply</h3>
       <p>Bulk construction material and industrial goods supply for contractors and project managers running multi-site work.</p>
     </div>
+  </div>
+</section>
+
+<!-- OUR WORK / GALLERY -->
+<section id="gallery" aria-labelledby="gallery-heading">
+  <div class="section-title reveal">
+    <span class="eyebrow">See it in place</span>
+    <h2 id="gallery-heading">Our Work</h2>
+    <p>A look at completed installations and site work across Bengaluru.</p>
+  </div>
+
+  <div class="gallery-card reveal">
+    <i class="fa-solid fa-images"></i>
+    <h3>See Our Latest Project Photos</h3>
+    <p>Browse completed installations and site work from our recent projects.</p>
+    <a href="https://drive.google.com/drive/folders/1n7yJKxm72Gn03vk8EZoE0NTyLnJlWKAw?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Photos</a>
   </div>
 </section>
 
@@ -1202,6 +1315,14 @@ if(!reduceMotion){
     card.addEventListener('mouseleave', () => { card.style.transform = ''; });
   });
 }
+
+// ── Product Catalog → Enquiry Form ─────────────────────────
+document.querySelectorAll('.btn-enquire').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('f-service').value = btn.dataset.service;
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
 
 // ── Enquiry Form → WhatsApp Redirect (with basic validation) ──
 const SERVICE_LABELS = {
