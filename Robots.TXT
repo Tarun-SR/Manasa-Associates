@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://manasaassociates.com/sitemap.xml
+Sitemap: https://tarun-sr.github.io/Manasa-Associates/sitemap.xml
