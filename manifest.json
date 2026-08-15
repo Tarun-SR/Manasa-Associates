@@ -1,0 +1,19 @@
+{
+  "name": "Manasa Associates",
+  "short_name": "Manasa Associates",
+  "description": "uPVC & Aluminum Doors and Windows, Waterproofing, Construction Materials, Building Chemicals and Industrial Goods supplier in Bengaluru.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1c1b19",
+  "theme_color": "#1c1b19",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1b19'/%3E%3Crect x='14' y='14' width='36' height='36' fill='none' stroke='%23c1531f' stroke-width='5'/%3E%3Crect x='24' y='24' width='16' height='16' fill='%238492a6'/%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

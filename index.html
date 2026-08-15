@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta name="theme-color" content="#1c1b19" />
+
+<!-- MOBILE / "ADD TO HOME SCREEN" APP-LIKE BEHAVIOR -->
+<link rel="manifest" href="manifest.json" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Manasa Associates" />
 
 <title>Manasa Associates | uPVC, Aluminum &amp; Waterproofing Specialists — Bengaluru</title>
 
@@ -93,7 +100,9 @@
 
 <style>
 
-*{ margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+*{ margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; -webkit-tap-highlight-color:transparent; }
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+a, button, .btn{ touch-action:manipulation; }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
@@ -181,6 +190,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 nav{
   width:100%; position:fixed; top:0; z-index:999;
   padding:18px 8%;
+  padding-top:calc(18px + env(safe-area-inset-top));
+  padding-left:calc(8% + env(safe-area-inset-left));
+  padding-right:calc(8% + env(safe-area-inset-right));
   display:flex; justify-content:space-between; align-items:center;
   background:rgba(25,24,21,0.82);
   backdrop-filter:blur(16px);
@@ -225,19 +237,24 @@ nav ul li a:hover, nav ul li a.active{
 
 .menu-toggle{
   display:none; background:none; border:1px solid var(--line-dark); color:white;
-  font-size:20px; cursor:pointer; padding:7px 12px; border-radius:6px; line-height:1;
+  font-size:20px; cursor:pointer; padding:12px 14px; border-radius:6px; line-height:1;
+  min-width:44px; min-height:44px;
 }
 .menu-toggle:hover{ background:rgba(255,255,255,0.08); }
 
 .mobile-nav{
   display:none; position:fixed; top:0; right:-100%;
-  width:280px; height:100vh;
+  width:min(280px,88vw); height:100vh; height:100dvh;
   background:rgba(25,24,21,0.98);
   backdrop-filter:blur(20px); z-index:1000;
   padding:80px 32px 40px;
+  padding-top:calc(80px + env(safe-area-inset-top));
+  padding-right:calc(32px + env(safe-area-inset-right));
+  padding-bottom:calc(40px + env(safe-area-inset-bottom));
   border-left:1px solid var(--line-dark);
   transition:right 0.35s ease;
   flex-direction:column;
+  overflow-y:auto;
 }
 .mobile-nav.open{ right:0; }
 .mobile-nav ul{ list-style:none; display:flex; flex-direction:column; }
@@ -247,9 +264,10 @@ nav ul li a:hover, nav ul li a.active{
 }
 .mobile-nav ul li a:hover{ color:var(--rust); }
 .mobile-close{
-  position:absolute; top:20px; right:20px; background:none;
+  position:absolute; top:calc(20px + env(safe-area-inset-top)); right:calc(20px + env(safe-area-inset-right)); background:none;
   border:1px solid var(--line-dark); color:white; font-size:18px;
-  cursor:pointer; padding:6px 12px; border-radius:6px;
+  cursor:pointer; padding:10px 14px; border-radius:6px;
+  min-width:44px; min-height:44px;
 }
 .nav-overlay{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:999; }
 .nav-overlay.open{ display:block; }
@@ -487,7 +505,7 @@ section{ padding:120px 8%; position:relative; }
 .stats-section .section-title p{ color:rgba(255,255,255,0.85); }
 .stats-section .eyebrow{ color:rgba(255,255,255,0.85); }
 .stats-section .eyebrow::before{ background:rgba(255,255,255,0.85); }
-.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+.stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
 .stat-box h2{ font-size:clamp(32px,4vw,46px); font-weight:700; }
 .stat-box p{ margin-top:8px; font-size:14px; color:rgba(255,255,255,0.85); }
 
@@ -614,7 +632,7 @@ section{ padding:120px 8%; position:relative; }
 .form-group input, .form-group select, .form-group textarea{
   width:100%; padding:13px 15px; border-radius:6px;
   border:1px solid var(--line); background:var(--concrete);
-  font-family:'Inter',sans-serif; font-size:14.5px; color:var(--ink);
+  font-family:'Inter',sans-serif; font-size:16px; color:var(--ink);
 }
 .form-group textarea{ min-height:110px; resize:vertical; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus{
@@ -668,7 +686,9 @@ footer{ background:var(--ink); color:white; padding:70px 8% 30px; }
    WHATSAPP FLOAT
    ===================== */
 .whatsapp{
-  position:fixed; right:24px; bottom:24px;
+  position:fixed;
+  right:calc(24px + env(safe-area-inset-right));
+  bottom:calc(24px + env(safe-area-inset-bottom));
   width:60px; height:60px; border-radius:50%;
   background:#25D366; display:flex; align-items:center; justify-content:center;
   font-size:30px; color:white; text-decoration:none; z-index:998;
@@ -696,7 +716,6 @@ footer{ background:var(--ink); color:white; padding:70px 8% 30px; }
   section{ padding:80px 6%; }
   .about-wrapper{ grid-template-columns:1fr; }
   .services-grid{ grid-template-columns:1fr 1fr; }
-  .stats{ grid-template-columns:1fr 1fr; }
   .capability-grid{ grid-template-columns:1fr; }
   .why-grid{ grid-template-columns:1fr 1fr; }
   .testimonials-grid{ grid-template-columns:1fr; }
@@ -707,14 +726,27 @@ footer{ background:var(--ink); color:white; padding:70px 8% 30px; }
   .contact-box{ padding:32px 22px; }
 }
 @media(max-width:600px){
-  nav{ padding:16px 5%; }
+  nav{ padding:16px 5%; padding-top:calc(16px + env(safe-area-inset-top)); }
+  .logo{ font-size:17px; gap:9px; }
+  .logo-mark{ width:28px; height:28px; }
+  .nav-cta .btn-primary{ display:none; } /* header stays to logo + hamburger on phones so it never crowds/overflows; Contact is still one tap away in the slide-out menu */
+  section{ padding:64px 6%; }
+  .hero{ padding:120px 6% 60px; }
+  .stack-scene{ height:260px; margin-top:10px; }
   .services-grid{ grid-template-columns:1fr; }
-  .stats{ grid-template-columns:1fr 1fr; }
+  .stats{ grid-template-columns:1fr; }
   .why-grid{ grid-template-columns:1fr; }
   .contact-grid{ grid-template-columns:1fr; }
+  .contact-box{ padding:24px 18px; }
+  .gallery-card{ padding:44px 24px; }
+  .info-card{ padding:28px 24px; }
+  .capability-card{ padding:24px 20px; }
+  .service-card{ padding:26px 22px; }
+  .footer-grid{ grid-template-columns:1fr; gap:36px; }
   .hero-buttons .btn, .btn{ width:100%; }
   .hero-buttons{ flex-direction:column; }
   .hero-meta{ gap:20px; }
+  .whatsapp{ width:52px; height:52px; font-size:26px; right:calc(16px + env(safe-area-inset-right)); bottom:calc(16px + env(safe-area-inset-bottom)); }
 }
 </style>
 </head>
@@ -908,9 +940,8 @@ footer{ background:var(--ink); color:white; padding:70px 8% 30px; }
     <h2 id="stats-heading">Numbers That Back It Up</h2>
   </div>
   <div class="stats">
-    <div class="stat-box reveal"><h2>100+</h2><p>Projects Supported</p></div>
+    <div class="stat-box reveal"><h2>70+</h2><p>Projects Supported</p></div>
     <div class="stat-box reveal"><h2>50+</h2><p>Happy Clients</p></div>
-    <div class="stat-box reveal"><h2>24/7</h2><p>Customer Support</p></div>
     <div class="stat-box reveal"><h2>100%</h2><p>Quality Commitment</p></div>
   </div>
 </section>
